@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .transition-width {
+    transition-property: width;
+  }
+}
