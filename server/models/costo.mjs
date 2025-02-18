@@ -28,25 +28,19 @@ const costoSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    valorPagado: {
-      type: Number,
-      required: false,
-    },
-    fechaPago: {
-      type: Date,
-      required: false,
-    },
-    cuentaGiradora: {
-      type: String,
-      required: false,
-    },
     saldoRestante: {
       type: Number,
-      default: 0,
+      default: function () {
+        return this.valorObligacion;
+      },
+    },
+    deleted: {
+      type: Boolean,
+      default: false,
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 

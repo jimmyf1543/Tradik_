@@ -70,7 +70,9 @@ export const actualizarIngreso = async (req, res) => {
 // Eliminar un ingreso por ID
 export const eliminarIngreso = async (req, res) => {
   try {
-    const ingreso = await Ingreso.findByIdAndDelete(req.params.id);
+    const ingreso = await Ingreso.findByIdAndUpdate(req.params.id, {
+      deleted: true,
+    });
     if (!ingreso) {
       return res
         .status(404)

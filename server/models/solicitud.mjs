@@ -6,7 +6,7 @@ const solicitudSchema = new mongoose.Schema(
     fechaSolicitud: {
       type: Date,
       required: true,
-      default: Date.now
+      default: Date.now,
     },
     fechaMontaje: {
       type: Date,
@@ -45,6 +45,10 @@ const solicitudSchema = new mongoose.Schema(
       type: Number,
       required: true,
       default: 0,
+    },
+    deleted: {
+      type: Boolean,
+      default: false,
     },
   },
   {

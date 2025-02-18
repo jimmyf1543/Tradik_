@@ -21,12 +21,6 @@ const validarCosto = [
   body("valorObligacion")
     .isNumeric()
     .withMessage("El valor de la obligación debe ser un número"),
-  body("valorPagado")
-    .isNumeric()
-    .withMessage("El valor pagado debe ser un número"),
-  body("cuentaGiradora")
-    .notEmpty()
-    .withMessage("La cuenta giradora es obligatoria"),
 ];
 
 router.post("/", validarCosto, crearCosto);

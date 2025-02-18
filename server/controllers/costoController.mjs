@@ -72,7 +72,9 @@ export const actualizarCosto = async (req, res) => {
 // Eliminar un costo por ID
 export const eliminarCosto = async (req, res) => {
   try {
-    const costo = await Costo.findByIdAndDelete(req.params.id);
+    const costo = await Costo.findByIdAndUpdate(req.params.id, {
+      deleted: true,
+    });
     if (!costo) {
       return res
         .status(404)

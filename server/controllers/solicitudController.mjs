@@ -61,7 +61,9 @@ export const actualizarSolicitud = async (req, res) => {
 // Eliminar una solicitud por ID
 export const eliminarSolicitud = async (req, res) => {
   try {
-    const solicitud = await Solicitud.findByIdAndDelete(req.params.id);
+    const solicitud = await Solicitud.findByIdAndAndUpdate(req.params.id, {
+      deleted: true,
+    });
     if (!solicitud) {
       return res
         .status(404)
